@@ -1,6 +1,6 @@
 ### Model Settings
 ```yaml
-device: 'cpu'
+device: 'cpu' # Device string used for pytorch (options: 'cpu'| 'gpu')
 ```
 
 ### Model config
