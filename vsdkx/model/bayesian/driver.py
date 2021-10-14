@@ -1,6 +1,6 @@
 import torch
 from vsdkx.core.interfaces import ModelDriver
-from vsdkx.core.structs import Inference
+from vsdkx.core.structs import Inference, FrameObject
 
 from vsdkx.model.bayesian.vgg import VGG, make_layers
 from torchvision import transforms
@@ -35,17 +35,18 @@ class BayesianDriver(ModelDriver):
                                                map_location=torch.device(
                                                   self._device)))
 
-    def inference(self, image) -> Inference:
+    def inference(self, frame_object: FrameObject) -> Inference:
         """
         Inferences the input image
 
         Args:
-            image (np.array): 3D image array
+            frame_object (FrameObject): Frame Object
 
         Returns:
             (float): Crowd number estimation
         """
         # Resize the image
+        image = frame_object.frame
         image = self._resize_image(image)
 
         # Run the inference on the input image
