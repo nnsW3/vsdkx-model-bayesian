@@ -1,3 +1,7 @@
+# Crowd density estimation
+
+This project utilises a [VGG model with Bayesian loss](https://github.com/ZhihengCV/Bayesian-Crowd-Counting) to estimate the desity of a crowd.
+
 ### Model Settings
 ```yaml
 device: 'cpu' # Device string used for pytorch (options: 'cpu'| 'gpu')
@@ -15,3 +19,16 @@ cfg:
       'M', 512, 512, 512, 512,
       'M', 512, 512, 512, 512 ]
 ```
+
+### Input/ Output
+
+- Input: It receives the RGB image as a FrameObject:
+
+  ```python
+  def inference(self, frame_object: FrameObject) -> Inference
+  ```
+- Output: Updates the `Inference.extra` object with the  `crowd_number`
+
+  ```python
+  return Inference(extra={"crowd_number": crowd_no})
+  ```
