@@ -1,6 +1,6 @@
 # Crowd density estimation
 
-This project utilises a [VGG model with Bayesian loss](https://github.com/ZhihengCV/Bayesian-Crowd-Counting) to estimate the desity of a crowd.
+This project utilises a [VGG model with Bayesian loss](https://github.com/ZhihengCV/Bayesian-Crowd-Counting) to estimate the density of a crowd.
 
 ### Model Settings
 ```yaml
